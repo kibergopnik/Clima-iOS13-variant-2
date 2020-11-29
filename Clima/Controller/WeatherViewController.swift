@@ -13,8 +13,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    
     @IBOutlet weak var searchTextField: UITextField!
+    let weatherManager = WeatherManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
@@ -31,7 +31,13 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(searchTextField.text!)
-        searchTextField.endEditing(true) //Деактивирует клавиатуру
+        if let city = searchTextField.text{
+            weatherManager.fetchWeather(cityName: city)
+            
+        }
+            
+       
+        searchTextField.endEditing(true)
         return true
     }
 
