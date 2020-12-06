@@ -14,7 +14,7 @@ struct WeatherManager {// формирование запроса appid=02ffe986
         performReqest(urlString: urlString)
     }
     func performReqest(urlString: String ){
-// Четыре шага по созданию networking
+// Четыре шага по созданию networking ....
 // 1. Создание URL
         if  let url = URL(string: urlString){
 // 2. Создание сессии - URL адреса
