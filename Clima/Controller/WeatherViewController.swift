@@ -13,16 +13,21 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchTextField: UITextField!//Создание экземпляра класса UITextField
     let weatherManager = WeatherManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchTextField.delegate = self
+        searchTextField.delegate = self // Делегирование классу searchTextField класса UITextField что означает передачу протоколов и методов содержащихся в классе UITextField
     }
 
     
     @IBAction func searshPressed(_ sender: UIButton) {
         print(searchTextField.text!)
+        if let city = searchTextField.text{
+                   weatherManager.fetchWeather(cityName: city)
+                   
+               }
+        
         searchTextField.endEditing(true)
       
        
